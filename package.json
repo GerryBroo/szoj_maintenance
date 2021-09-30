@@ -1,0 +1,22 @@
+{
+  "name": "szoj_maintenance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GerryBroo/szoj_maintenance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GerryBroo/szoj_maintenance/issues"
+  },
+  "homepage": "https://github.com/GerryBroo/szoj_maintenance#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
