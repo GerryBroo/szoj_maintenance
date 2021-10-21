@@ -27,7 +27,8 @@
                         <a class="nav-link" href="issues.html">Issues</a>
                     </li>
                 </ul>
-
+            </div>
+            <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="create_machine.html">Create Machine</a>
@@ -45,19 +46,30 @@
     <h1 class="p-2">Machines</h1>
 
     <div class="row p-2 rounded mo" style="background: aqua">
-        <div class="col-4 fw-bold">Name</div>
-        <div class="col-4 text-center fw-bold">Factory</div>
-        <div class="col-4 text-end fw-bold">Condition</div>
+        <div class="col-3 fw-bold">Name</div>
+        <div class="col-3 text-center fw-bold">Factory</div>
+        <div class="col-3 text-center fw-bold">Condition</div>
+        <div class="col-3 text-center fw-bold">Delete</div>
     </div>
     <div class="row p-2 rounded border-bottom">
-        <div class="col-4">Hegesztő állomás</div>
-        <div class="col-4 text-center">B1</div>
-        <div class="col-4 text-end">Good</div>
+        <div class="col-3">Hegesztő állomás</div>
+        <div class="col-3 text-center">B1</div>
+        <div class="col-3 text-center">Good</div>
+        <div class="col-3 text-center">
+            <button type="button" class="btn btn-link">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
     </div>
     <div class="row p-2 rounded border-bottom">
-        <div class="col-4">Forrasztó állomás</div>
-        <div class="col-4 text-center">B2</div>
-        <div class="col-4 text-end">Error</div>
+        <div class="col-3">Forrasztó állomás</div>
+        <div class="col-3 text-center">B2</div>
+        <div class="col-3 text-center">Error</div>
+        <div class="col-3 text-center">
+            <button type="button" class="btn btn-link">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
     </div>
 </main>
 
