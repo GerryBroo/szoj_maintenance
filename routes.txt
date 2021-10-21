@@ -1,0 +1,66 @@
+Gépek és issue-k
+- index.html - gépek listája
+- issues.html - issuek listája
+- create_machine.html - új gép felvétel
+- create_issue.html - új issue felvétel
+- edit_issue.html - issue szerkesztése
+
+Middlewares
+
+middleware/
+    renderMW.js
+
+middleware/machine
+    getMachinesMW.js
+    getMachineMW.js
+    saveMachineMW.js
+    delMachineMW.js
+
+middleware/issue
+    getIssuesMW.js
+    getIssueMW.js
+    saveIssueMW.js
+    delIssueMW.js
+
+Routing
+
+/* MACHINES */
+
+GET        /machine
+                getMachinesMW
+                renderMW(index.html)
+
+GET, POST   /machine/new
+                saveMachineMW
+                renderMW(create_machine.html)
+                    - nem tölti ki adatokkal, mivel teljesn új gép felvétele történik
+
+GET         /machine/del/:machineid
+                getMachineMW
+                delMachineMW
+
+/* ISSUES */
+
+GET         /issue
+                getIssuesMW
+                renderMW(issues.html)
+
+GET, POST   /issue/edit/:issueid
+                getIssueMW
+                getMachineMW - az állapot változáskor frissíti a gép állapotát is
+                saveIssueMW
+                saveMachineMW - az állapot változáskor frissíti a gép állapotát is
+                renderMW(edit_issue.html)
+
+GET, POST   /issue/new
+                getMachinesMW - az issue-hoz kell rendelni egy gépet
+                saveIssueMW
+                saveMachineMW - az állapot változáskor frissíti a gép állapotát is
+                renderMW(create_issue.html)
+                    - ki tölti az eddigi adatokkal
+
+GET         /issue/del/:issueid
+                getIssueMW
+                getMachineMW - az issue-hoz rendelt gép
+                delIssueMW
+                saveMachineMW - a törléskor frissíti a gép állapotát is
