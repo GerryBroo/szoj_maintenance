@@ -3,6 +3,9 @@ var app = express();
 
 app.use(express.static('static'));
 
+// Load routing
+require('./route/routes')(app);
+
 var servert = app.listen(3000, function () {
     console.log("On: 3000");
 });
