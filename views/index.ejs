@@ -1,0 +1,26 @@
+<%- include('header', {pagetitle: 'Maintenance - Machines'}) -%>
+
+<main class="container">
+    <h1 class="p-2">Machines</h1>
+    <div class="row p-2 rounded mo" style="background: aqua">
+        <div class="col-3 fw-bold">Name</div>
+        <div class="col-3 text-center fw-bold">Factory</div>
+        <div class="col-3 text-center fw-bold">Condition</div>
+        <div class="col-3 text-center fw-bold">Delete</div>
+    </div>
+    <% machines.forEach(function (machine) { %>
+            <div class="row p-2 rounded border-bottom">
+                <div class="col-3"><%= machine.name %></div>
+                <div class="col-3 text-center"><%= machine.factory %></div>
+                <div class="col-3 text-center"><%= machine.condition %></div>
+                <div class="col-3 text-center">
+                    <button type="button" class="btn btn-link">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            </div>
+        <% });
+    %>
+</main>
+
+<%- include('footer') -%>

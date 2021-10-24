@@ -20,12 +20,6 @@ module.exports = function(app) {
     };
 
     app.use(
-        '/machine',
-        getMachinesMW(objRepo),
-        renderMW(objRepo, 'index')
-    );
-
-    app.use(
         '/machine/new',
         saveMachineMW(objRepo),
         renderMW(objRepo, 'create_machine')
@@ -38,9 +32,9 @@ module.exports = function(app) {
     );
 
     app.use(
-        '/issue',
-        getIssuesMW(objRepo),
-        renderMW(objRepo, 'issues')
+        '/machine',
+        getMachinesMW(objRepo),
+        renderMW(objRepo, 'index')
     );
 
     app.use(
@@ -68,6 +62,10 @@ module.exports = function(app) {
         saveMachineMW(objRepo),
     );
 
-    
+    app.use(
+        '/issue',
+        getIssuesMW(objRepo),
+        renderMW(objRepo, 'issues')
+    );
 
 };

@@ -1,0 +1,30 @@
+<%- include('header', {pagetitle: 'Maintenance - Issues'}) -%>
+
+<main class="container">
+    <h1 class="p-2">Issues</h1>
+
+    <div class="row p-2 rounded" style="background: aqua">
+        <div class="col-3 fw-bold">Name</div>
+        <div class="col-3 text-center fw-bold">Created at</div>
+        <div class="col-3 text-center fw-bold">Status</div>
+        <div class="col-3 text-center fw-bold">Edit</div>
+    </div>
+
+    <% issues.forEach(function (issue) { %>
+        <div class="row p-2 rounded border-bottom">
+            <div class="col-3"><%= issue.name %></div>
+            <div class="col-3 text-center"><%= issue.date %></div>
+            <div class="col-3 text-center"><%= issue.condition %></div>
+            <div class="col-3 text-center">
+                <a href="/issue/edit/123">
+                    <i class="fas fa-edit"></i>
+                </a>
+                <button type="button" class="btn btn-link">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+    <% }); %>
+</main>
+
+<%- include('footer') -%>

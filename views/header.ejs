@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= pagetitle %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/f43414302f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="site-header sticky-top" style="background: aqua">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/machine">
+                <i class="fas fa-wrench" style="padding-right: 5px"></i>Maintenance</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/machine">Machines</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/issue">Issues</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/machine/new">Create Machine</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/issue/new">Create Issue</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
