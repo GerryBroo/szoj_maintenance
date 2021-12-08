@@ -4,23 +4,16 @@
 
 const requireOption = require('../requireOption');
 
-module.exports = function geMachinesMW(objectrepository) {
-    return function(req, res, next) {
+module.exports = function getMachinesMW(objectrepository) {
+    const MachineModel = requireOption(objectrepository, 'MachineModel');
 
-        setTimeout(function () {
-            res.locals.machines = [
-                {
-                    name: 'Hegesztő állomás',
-                    factory: 'B1',
-                    condition: 'Good'
-                },
-                {
-                    name: 'Forrasztó állomás',
-                    factory: 'B2',
-                    condition: 'Error'
-                }
-            ];
-            next();
-        }, 3);
-    }
-}
+    return function(req, res, next) {
+        MachineModel.find({}, (err, machines) => {
+            if(err) {
+                return next(err);
+            }
+            res.locals.machines = machines;
+            return next();
+        });
+    };
+};

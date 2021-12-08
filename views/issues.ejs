@@ -14,14 +14,15 @@
         <div class="row p-2 rounded border-bottom">
             <div class="col-3"><%= issue.name %></div>
             <div class="col-3 text-center"><%= issue.date %></div>
-            <div class="col-3 text-center"><%= issue.condition %></div>
+            <div class="col-3 text-center"><%= issue.status %></div>
             <div class="col-3 text-center">
-                <a href="/issue/edit/123">
+                <a href="/issue/edit/<%= issue.id %>" class="btn btn-sm btn-primary">
                     <i class="fas fa-edit"></i>
                 </a>
-                <button type="button" class="btn btn-link">
+                <a href="/issue/del/<%= issue.id %>"
+                   class="btn btn-sm btn-danger">
                     <i class="fas fa-trash"></i>
-                </button>
+                </a>
             </div>
         </div>
     <% }); %>

@@ -14,9 +14,9 @@
                 <div class="col-3 text-center"><%= machine.factory %></div>
                 <div class="col-3 text-center"><%= machine.condition %></div>
                 <div class="col-3 text-center">
-                    <button type="button" class="btn btn-link">
-                        <i class="fas fa-trash"></i>
-                    </button>
+                    <a href="/machine/del/<%= machine.id %>" type="button" class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
                 </div>
             </div>
         <% });

@@ -1,30 +1,58 @@
 <%- include('header', {pagetitle: 'Maintenance - Create Issue'}) -%>
 
 <main class="container">
-  <form>
-    <h1 class="p-1">
-      Create Issue
-    </h1>
-    <div class="mb-3">
-      <label for="issue_name" class="form-label fw-bold">Name</label>
-      <input type="text" class="form-control" id="issue_name" aria-describedby="issue_name_help">
-      <div id="issue_name_help" class="form-text">Name of the Issue</div>
-    </div>
-    <div class="mb-3">
-      <label for="machine_name_issue" class="form-label fw-bold">Machine</label>
-      <input type="text" class="form-control" id="machine_name_issue">
-    </div>
-    <div class="mb-3">
-      <label for="error_message" class="form-label fw-bold">Error Message</label>
-      <input type="text" class="form-control" id="error_message">
-    </div>
-    <div class="mb-3">
-      <label for="comment" class="form-label fw-bold">Comment</label>
-      <input type="text" class="form-control" id="comment">
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a class="btn btn-danger" href="/issue">Cancel</a>
-  </form>
+    <form method="POST">
+        <h1 class="p-1">
+            <% if (typeof issue === 'undefined') { %>
+                Create Issue
+            <% }else{ %>
+                Edit Issue
+            <% } %>
+        </h1>
+        <div class="mb-3">
+            <label for="name" class="form-label fw-bold">Name</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
+                   value="<%= (typeof issue === 'undefined') ? '' : issue.name %>">
+            <div id="name" class="form-text">Name of the Issue</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="status" class="form-label fw-bold">Status</label>
+            <select class="form-select" aria-label="Select Status" id="status" name="status">
+                <option selected>Waiting for repair</option>
+                <option value="Under repair">Under repair</option>
+                <option value="Waiting for transfer">Waiting for transfer</option>
+                <option value="Transferred">Transferred</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label fw-bold">Error Message</label>
+            <input type="text" class="form-control" id="message" name="message"
+                   value="<%= (typeof issue === 'undefined') ? '' : issue.message %>">
+        </div>
+
+        <div class="mb-3">
+            <label for="comment" class="form-label fw-bold">Comment</label>
+            <input type="text" class="form-control" id="comment" name="comment"
+                   value="<%= (typeof issue === 'undefined') ? '' : issue.comment %>">
+        </div>
+
+        <% if (typeof issue === 'undefined') { %>
+        <div class="mb-3">
+            <label for="machine" class="form-label fw-bold">Machine</label>
+            <select class="form-select" aria-label="Select Machine" id="machine" name="machine">
+                <% machines.forEach(function (machine) { %>
+                    <option value=<%= machine.id %>><%= machine.name %></option>
+                <% });
+                %>
+            </select>
+        </div>
+        <% } %>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a class="btn btn-danger" href="/issue">Cancel</a>
+    </form>
 </main>
 
 <%- include('footer') -%>
